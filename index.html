@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+  <title>
+    GameTime
+  </title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <script src="assets/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="vue-app">
+    <div id="img">
+      <img v-bind:src="displayImg" />
+    </div>
+
+    <div id="health">
+      <span>Progress = {{ health }} </span>
+      <br />
+      <div v-if="this.health >= 99" class="health-bar"></div>
+      <div v-if="this.health >= 66" class="health-bar"></div>
+      <div v-if="this.health >= 33" class="health-bar"></div>
+      <div v-if="this.health > 0" class="health-bar"></div>
+    </div>
+    <div id="health2">
+      <div v-bind:style="{ width:health + '%'}" class="health-bar2"></div>
+    </div>
+
+    <div id="ctrl">
+      <button v-if="this.health > 0" v-on:click='attack("")'>Attack</button>
+      <button v-if="this.health > 0" v-on:click='attack("s")'>
+        Special Attack
+      </button>
+      <button class="reset" v-on:click="reset">reset</button>
+    </div>
+  </div>
+  <script src="assets/js/script.js"></script>
+</body>
